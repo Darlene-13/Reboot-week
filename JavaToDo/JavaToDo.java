@@ -3,6 +3,7 @@
 import java.util.*;
 import java.time.LocalDateTime;
 
+
 enum priorityIndex{
     // Priority 1,2,3 matched to their degree of criticality.
     HIGH, MEDIUM, LOW
@@ -13,21 +14,21 @@ enum completionStatus {
     INPROGRESS,
     COMING SOON
 }
-public class ToDoManager {
+class Task {
 
     //Variables
     private String taskName;
     private LocalDateTime dueDate;
     private priorityIndex priorityIndex;
-
-
+    private String description;
 
 
     // Constructors
-    ToDoManager(String taskName, priorityIndex priorityIndex, LocalDateTime dueDate){
+    Task(String taskName, priorityIndex priorityIndex, LocalDateTime dueDate, String taskDescription){
         this.taskName = taskName;
         this.priorityIndex = priorityIndex;
         this.dueDate = dueDate;
+        this.taskDescription = taskDescription;
     }
 
 
@@ -47,12 +48,30 @@ public class ToDoManager {
     public priorityIndex getPriorityIndex(){
         return priorityIndex;
     }
+    public void setPriorityIndex(priorityIndex priorityIndex) {
+        this.priorityIndex = priorityIndex;
+    }
+    public String getTaskDescription(){
+        return taskDescription;
+    }
+    public void setTaskDescription(String taskDescription){
+        this.taskDescription = taskDescription;
+    }
 
+}
 
+class TodoManager{
+
+    private ArrayList<Task> taskList; // We are storing the Task object and not the string.
+
+    TodoManager(){  // We do not accept a paramater if we are creating  anew empty list
+        this.taskList = new ArrayList<Task>();
+    }
 
     // METHODS
-    public void addTask(String taskName){
-        // Ensure that a task with a similar name does not exist before adding task
+    public void addTask(String taskName, String taskDescription){
+        // To add a new task we need a data structure that will store it, in our case we will use the ArrayList
+
 
 
     }
@@ -87,19 +106,14 @@ public class JavaToDo{
     private completionStatus completionStatus;
     private ToDoManager TodoManager;
 
-        JavaToDo(String taskDescription, completionStatus completionStatus, TodoManager TodoManager){
+        JavaToDo(completionStatus completionStatus, TodoManager TodoManager){
             this.taskDescription = taskDescription;
             this.completionStatus = completionStatus;
             this.ToDoManager = new ToDoManager();
         }
 
+
         // Getters and Setters
-        public String getTaskDescription(){
-            return taskDescription;
-        }
-        public void setTaskDescription(String taskDescription){
-            this.taskDescription = taskDescription;
-        }
         public completionStatus getCompletionStatus(){
             return completionStatus;
         }
@@ -128,7 +142,7 @@ public class JavaToDo{
         String userName = sc.nextLine();
 
         // Create a to-do list object
-        JavaToDo JavaToDo = new JavaTodo(userName);
+        TodoManager todoManager = new JavaTodo(userName);
         int choice;
 
         // We will use a switch case loop that is embeded in the do while loop.
@@ -144,9 +158,19 @@ public class JavaToDo{
                     break;
 
                 case 2:
+                    System.out.println("Enter task name: ");
+                    String taskName = sc.nextLine();
+                    System.out.println("Enter the task description: ");
+                    String description = sc.nextLine();
+                    System.out.println("Enter the task due date: ");
+                    LocalDateTime dueDate = sc.nextLine();
+                    System.out.println("Enter the task's priority level: (HIGH, MEDIUM, LOW.)");
+                    priorityIndex priorityIndex = sc.nextLine();
 
-                    break;
-
+                    // Create a new task object
+                    Task newTask = new Task (taskName, description, dueDate, priorityIndex);
+                    toDoManager.addTask();
+                   break;
 
                 case 3:
 
