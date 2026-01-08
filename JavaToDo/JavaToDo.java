@@ -13,25 +13,67 @@ enum completionStatus {
     INPROGRESS,
     COMING SOON
 }
+public class JavaToDo{
+    private String taskDescription;
+    private completionStatus completionStatus;
 
-public class JavaToDo {
+        JavaToDo(String taskDescription, completionStatus completionStatus){
+            this.taskDescription = taskDescription;
+            this.completionStatus = completionStatus;
+        }
+
+        // Getters and Setters
+        public String getTaskDescription(){
+            return taskDescription;
+        }
+        public void setTaskDescription(String taskDescription){
+            this.taskDescription = taskDescription;
+        }
+        public completionStatus getCompletionStatus(){
+            return completionStatus;
+        }
+        public void setCompletionstatus(completionStatus completionStatus){
+            this.completionStatus = completionStatus;
+        }
+    public static void main(String[] args){
+
+        // To accept inputs we use scanner
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Here to plan!! Welcome");
+        System.out.println("Please enter your name:");
+
+        String userName = sc.nextline();
+
+        // Create a to-do list object
+        JavaToDo JavaToDo = new JavaTodo(userName);
+
+        // We will use a switch case loop that is embeded in the do while loop.
+
+        do{
+
+
+        } while (){
+
+        }
+    }
+
+}
+
+public class ToDoManager {
 
     //Variables
     private String taskName;
     private LocalDateTime dueDate;
     private priorityIndex priorityIndex;
-    private String taskDescription;
-    private completionStatus completionStatus;
+
 
 
 
     // Constructors
-    JavaToDo(String taskName, priorityIndex priorityIndex, LocalDateTime dueDate, String taskDescription, CompletionStatus completionStatus){
+    ToDoManager(String taskName, priorityIndex priorityIndex, LocalDateTime dueDate){
         this.taskName = taskName;
         this.priorityIndex = priorityIndex;
         this.dueDate = dueDate;
-        this.taskDescription = taskDescription;
-        this.completionStatus = completionStatus;
   }
 
 
@@ -50,18 +92,6 @@ public class JavaToDo {
     }
     public priorityIndex getPriorityIndex(){
         return priorityIndex;
-    }
-    public String getTaskDescription(){
-        return taskDescription;
-    }
-    public void setTaskDescription(String taskDescription){
-        this.taskDescription = taskDescription;
-    }
-    public completionStatus getCompletionStatus(){
-        return completionStatus;
-    }
-    public void setCompletionstatus(completionStatus completionStatus){
-        this.completionStatus = completionStatus;
     }
 
 
@@ -95,25 +125,5 @@ public class JavaToDo {
 
     }
 
-    public static void main(String[] args){
 
-        // To accept inputs we use scanner
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Here to plan!! Welcome");
-        System.out.println("Please enter your name:");
-
-        String userName = sc.nextline();
-
-        // Create a to-do list object
-        JavaToDo JavaToDo = new JavaTodo(userName);
-
-        // We will use a switch case loop that is embeded in the do while loop.
-
-        do{
-
-
-        } while (){
-
-        }
-    }
 }
