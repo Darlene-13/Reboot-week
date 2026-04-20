@@ -1,0 +1,30 @@
+{
+  "version": 1,
+  "author": "Gilbert & Samuel",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp32", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-slide-potentiometer", "id": "pressure", "top": 150, "left": -200, "attrs": { "value": "0.5" } },
+    { "type": "wokwi-slide-potentiometer", "id": "displacement", "top": 250, "left": -200, "attrs": { "value": "0.1" } },
+    { "type": "wokwi-led", "id": "ledGreen", "top": 150, "left": 200, "attrs": { "color": "green" } },
+    { "type": "wokwi-led", "id": "ledYellow", "top": 200, "left": 200, "attrs": { "color": "yellow" } },
+    { "type": "wokwi-led", "id": "ledRed", "top": 250, "left": 200, "attrs": { "color": "red" } },
+    { "type": "wokwi-buzzer", "id": "buzzer", "top": 320, "left": 200, "attrs": {} }
+  ],
+  "connections": [
+    [ "pressure:SIG", "esp32:34", "green", [] ],
+    [ "pressure:VCC", "esp32:3V3", "red", [] ],
+    [ "pressure:GND", "esp32:GND", "black", [] ],
+    [ "displacement:SIG", "esp32:35", "blue", [] ],
+    [ "displacement:VCC", "esp32:3V3", "red", [] ],
+    [ "displacement:GND", "esp32:GND", "black", [] ],
+    [ "ledGreen:A", "esp32:25", "green", [] ],
+    [ "ledGreen:K", "esp32:GND", "black", [] ],
+    [ "ledYellow:A", "esp32:26", "yellow", [] ],
+    [ "ledYellow:K", "esp32:GND", "black", [] ],
+    [ "ledRed:A", "esp32:27", "red", [] ],
+    [ "ledRed:K", "esp32:GND", "black", [] ],
+    [ "buzzer:1", "esp32:32", "purple", [] ],
+    [ "buzzer:2", "esp32:GND", "black", [] ]
+  ]
+}
